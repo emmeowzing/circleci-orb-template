@@ -3,11 +3,11 @@ version: 2.1
 parameters:
   workspace:
     type: string
-    default: chart-testing
+    default: bjd2385
 
   orb-version:
     type: string
-    default: 1.0.0
+    default: 0.1.0
 
 orbs:
   orb-tools: circleci/orb-tools@10.1.0
@@ -44,7 +44,7 @@ workflows:
           attach-workspace: true
           orb-path: workspace/orb.yml
           validate: false
-          orb-ref: << pipeline.parameters.workspace >>/name@<< pipeline.parameters.orb-version >>
+          orb-ref: << pipeline.parameters.workspace >>/ORB_NAME@<< pipeline.parameters.orb-version >>
           requires:
             - orb-tools/pack
           context: orb-publishing
