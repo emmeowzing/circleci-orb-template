@@ -18,5 +18,5 @@ $ circleci orb validate orb.yml
 
 This repository uses `pre-commit` to uphold certain code styling and standards. You may install the hooks listed in [`.pre-commit-config.yaml`](.pre-commit-config.yaml) with
 ```shell
-$ yarn install:pre-commit
+$ yarn install:pre-commit-hooks
 ```
