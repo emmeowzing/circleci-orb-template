@@ -17,16 +17,28 @@ workflows:
   on-commit:
     jobs:
       # Run a bunch of tests against this repo
-      - orb-tools/lint
+      - orb-tools/lint:
+          filters:
+            branches:
+              ignore:
+                - master
 
       - orb-tools/pack:
           persist-to-workspace: false
           store-artifacts: false
           validate: true
+          filters:
+            branches:
+              ignore:
+                - master
 
       - shellcheck/check:
           dir: ./src/scripts
           exclude: SC2148
+          filters:
+            branches:
+              ignore:
+                - master
 
   on-merge:
     jobs:
